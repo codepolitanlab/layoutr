@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include_once('partials/metadata.php'); ?>
+  {include="partials/metadata"}
 </head>
 <body>
   <div class="container">
     <header>
-      <?php include_once('partials/header1.php'); ?>      
+      {include="partials/header1"}
     </header>
 
     <div class="top-content">
-      <?php include_once('partials/jumbotron1.php'); ?>
+      {include="partials/jumbotron1"}
       <hr>
     </div>
 
     <div class="content">
+	
       <div class="row-fluid">
         <div class="span4">
           <!-- Example row of columns -->
@@ -34,31 +35,16 @@
         </div>
       </div>
       <hr>
-    </div>
+    
+	</div>
 
 
     <footer>
-      <p>&copy; Company 2013</p>
+      {include="partials/footer1"}
     </footer>
 
   </div> <!-- /container -->
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src=".../bootstrap/js/jquery.js"></script>
-    <script src=".../bootstrap/js/bootstrap-transition.js"></script>
-    <script src=".../bootstrap/js/bootstrap-alert.js"></script>
-    <script src=".../bootstrap/js/bootstrap-modal.js"></script>
-    <script src=".../bootstrap/js/bootstrap-dropdown.js"></script>
-    <script src=".../bootstrap/js/bootstrap-scrollspy.js"></script>
-    <script src=".../bootstrap/js/bootstrap-tab.js"></script>
-    <script src=".../bootstrap/js/bootstrap-tooltip.js"></script>
-    <script src=".../bootstrap/js/bootstrap-popover.js"></script>
-    <script src=".../bootstrap/js/bootstrap-button.js"></script>
-    <script src=".../bootstrap/js/bootstrap-collapse.js"></script>
-    <script src=".../bootstrap/js/bootstrap-carousel.js"></script>
-    <script src=".../bootstrap/js/bootstrap-typeahead.js"></script>
-
+	{include="partials/jsassets"}
   </body>
   </html>
