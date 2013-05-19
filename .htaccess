@@ -5,6 +5,7 @@
 	RewriteCond %{REQUEST_FILENAME} !-d
 
 	<IfModule mod_php5.c>
+		RewriteEngine on 
 		RewriteRule ^(.*)$ index.php/$1 [L]
 	</IfModule>
 
