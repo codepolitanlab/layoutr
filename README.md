@@ -13,3 +13,9 @@ Layoutr is a html layout collection for developer to collect html layouts for fu
   $tpl->assign('theme', 'bootstrap'); to your theme folder name
 - this application use [rainTPL](http://www.raintpl.com/) for template engine. 
   You can use all raiTPL features in your theme
+
+## Add new Layout
+
+You can add new layout by making new html files in layouts/ folder.
+You can add partial layout for common use in layouts/partials/ and embed it 
+in your main layout with tag {include="partials/header"} for example.
