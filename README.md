@@ -7,7 +7,9 @@ Layoutr is a html layout collection for developer to collect html layouts for fu
 - Download it and extract to your localhost folder
 - call the URL in your browser http://localhost/layoutr/
 - you can specify the html layout by calling it in the first URI segment, 
-  etc http://localhost/layoutr/homepage1
+  etc http://localhost/layoutr/layout1
+- There are 3 default partial in layout: header, content, and footer .
+  You can acccess it with query string like this http://localhost/layoutr/layout1/?h=header1&c=3col&f=footer2
 - The default style is Twitter Bootstrap. You can make your own style
   by adding it in themes/ folder and then edit your index.php line 
   $tpl->assign('theme', 'bootstrap'); to your theme folder name
@@ -16,6 +18,6 @@ Layoutr is a html layout collection for developer to collect html layouts for fu
 
 ## Add new Layout
 
-You can add new layout by making new html files in layouts/ folder.
+You can add new layout by making new html layout files in layouts/ folder.
 You can add partial layout for common use in layouts/partials/ and embed it 
-in your main layout with tag {include="partials/header"} for example.
+in your main layout with tag {include="partials/carousel1"} for example.
