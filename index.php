@@ -16,7 +16,7 @@
 	$theme_path = "themes/$theme/";
 
 	// this is custom style, make it the same name with its layout, otherwise it will use default style
-	$style = file_exists($theme_path.$layout.'.css')? $layout : null;
+	$style = file_exists($theme_path.'css/'.$layout.'.css')? $layout : null;
 
 /* ================================================================== */
 
@@ -31,7 +31,7 @@
 	$header = isset($_GET['h'])? $_GET['h']: 'header1';
 	$tpl->assign('header', $header);
 
-	$content = isset($_GET['c'])? $_GET['c']: 'content1';
+	$content = isset($_GET['c'])? $_GET['c']: '1col';
 	$tpl->assign('content', $content);	
 
 	$footer = isset($_GET['f'])? $_GET['f']: 'footer1';
