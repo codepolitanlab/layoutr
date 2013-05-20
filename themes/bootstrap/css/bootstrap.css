@@ -5610,6 +5610,9 @@ a.thumbnail:focus {
 .media-object {
   display: block;
 }
+.media-object.pull-left {
+  margin: 5px 10px 5px 0;
+}
 
 .media-heading {
   margin: 0 0 5px;

@@ -12,10 +12,11 @@
 	$layout = (!empty($uri[2])) ? $uri[2] : 'layout1';
 	
 	// folder theme name, set this to your own theme
-	$theme = 'bootstrap';
+	$theme = "bootstrap";
+	$theme_path = "themes/$theme/";
 
 	// this is custom style, make it the same name with its layout, otherwise it will use default style
-	$style = file_exists("themes/".$theme."/css/".$layout.'.css')? $layout : null;
+	$style = file_exists($theme_path.$layout.'.css')? $layout : null;
 
 /* ================================================================== */
 
@@ -23,7 +24,8 @@
 	$tpl = new RainTPL;
 	
 	// assign some variables
-	$tpl->assign('theme', $theme); 
+	$tpl->assign('theme', $theme);
+	$tpl->assign('theme_path', $theme_path);
 	$tpl->assign('style', $style);
 
 	$header = isset($_GET['h'])? $_GET['h']: 'header1';
