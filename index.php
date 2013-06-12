@@ -16,9 +16,12 @@
 	// parse uri for layout
 	$layout = isset($_GET['l'])? $_GET['l']: 'layout1';
 	
+	// this is for main style
+	$mainstyle = isset($_GET['s'])? $_GET['s']: 'bootstrap';
+	$style = file_exists($theme_path.'css/styles/'.$mainstyle.'.css')? $mainstyle : null;
 
 	// this is custom style, make it the same name with its layout, otherwise it will use default style
-	$style = file_exists($theme_path.'css/'.$layout.'.css')? $layout : null;
+	$custom = file_exists($theme_path.'css/custom/'.$layout.'.css')? $layout : null;
 
 /* ================================================================== */
 
@@ -27,11 +30,13 @@
 		$result = array();
 		foreach ($array as $value) {
 			if($value != '.' && $value != '..'){
-				$result[] = substr($value, 0, count($value)-6); // remove .html
+				if(strpos($value,'.html')) $minus = 6; else $minus = 5;
+				$result[] = substr($value, 0, count($value)-$minus); // remove .html or .css
 			}
 		}
 		return $result;
 	}
+	$styles = filter_array(scandir("themes/$theme/css/styles/"));
 	$layouts = filter_array(scandir('template/layouts/'));
 	$headers = filter_array(scandir('template/partials/headers/'));
 	$contents = filter_array(scandir('template/partials/contents/'));
@@ -48,9 +53,11 @@
 	$tpl->assign('theme_path', $theme_path);
 	$tpl->assign('base_url', $base_url);
 	$tpl->assign('style', $style);
+	$tpl->assign('custom', $custom);
 	$tpl->assign('layout', $layout);
 
 	// get layout list
+	$tpl->assign('styles', $styles);
 	$tpl->assign('layouts', $layouts);
 	$tpl->assign('headers', $headers);
 	$tpl->assign('contents', $contents);

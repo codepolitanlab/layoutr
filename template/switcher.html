@@ -2,7 +2,15 @@
 	<div class="switcher-container">
 		<form action="index.php" id="try-layout">
 		<div class="sub">
-			<h4>Layout</h4>
+			<h4 class="nav-header">Style</h4>
+			<select class="span2" name="s" id="input-style">
+				{loop="styles"}
+					<option value="{$value}">{$value}</option>
+				{/loop}
+			</select>
+		</div>
+		<div class="sub">
+			<h4 class="nav-header">Layout</h4>
 			<select class="span2" name="l" id="input-layout">
 				{loop="layouts"}
 					<option value="{$value}">{$value}</option>
@@ -10,7 +18,7 @@
 			</select>
 		</div>
 		<div class="sub">
-			<h4>Header</h4>
+			<h4 class="nav-header">Header</h4>
 			<select class="span2" name="h" id="input-header">
 				{loop="headers"}
 					<option value="{$value}">{$value}</option>
@@ -18,7 +26,7 @@
 			</select>
 		</div>
 		<div class="sub">
-			<h4>Content</h4>
+			<h4 class="nav-header">Content</h4>
 			<select class="span2" name="c" id="input-content">
 				{loop="contents"}
 					<option value="{$value}">{$value}</option>
@@ -26,7 +34,7 @@
 			</select>
 		</div>
 		<div class="sub">
-			<h4>Footer</h4>
+			<h4 class="nav-header">Footer</h4>
 			<select class="span2" name="f" id="input-footer">
 				{loop="footers"}
 					<option value="{$value}">{$value}</option>
@@ -42,7 +50,7 @@
 <style>
 	.switcher {
 		display: block;
-		position: absolute;
+		position: fixed;
 		left: 0;
 		top: 100px;
 	}
@@ -54,6 +62,10 @@
 		min-width: 150px;
 		-webkit-box-shadow: 4px 4px 3px 0px rgba(20,20,20,.5);
 		box-shadow: 4px 4px 3px 0px rgba(20,20,20,.5);
+	}
+	h4.nav-header {
+		padding: 0;
+		margin-bottom: 0;
 	}
 	.sub {
 		border-bottom: 1px solid #eee;
@@ -76,10 +88,11 @@
 <script>
 	// init
 	if($.cookie('is_open') == 'opened') open_switcher(); else close_switcher();
-	if($.cookie('layout')) $('#input-layout option[value={$layout}]').prop('selected', true);
-	if($.cookie('header')) $('#input-header option[value={$header}]').prop('selected', true);
-	if($.cookie('content')) $('#input-content option[value={$content}]').prop('selected', true);
-	if($.cookie('footer')) $('#input-footer option[value={$footer}]').prop('selected', true);
+	$('#input-style option[value={$style}]').prop('selected', true);
+	$('#input-layout option[value={$layout}]').prop('selected', true);
+	$('#input-header option[value={$header}]').prop('selected', true);
+	$('#input-content option[value={$content}]').prop('selected', true);
+	$('#input-footer option[value={$footer}]').prop('selected', true);
 	// end init
 	
 	function close_switcher(){
