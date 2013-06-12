@@ -18,6 +18,16 @@ Layoutr is a html layout collection for developer to collect html layouts for fu
 
 ## Add new Layout
 
-You can add new layout by making new html layout files in layouts/ folder.
-You can add partial layout for common use in layouts/partials/ and embed it 
-in your main layout with tag {include="partials/carousel1"} for example.
+You can add new layout by making new html layout files in template/layouts/ folder.
+For uniformity, named your layout by adding prefix 'layout' e.g. layout1.html, layout2-fluid.html
+
+## Add new Partial
+
+You can add partial layout for common use in template/partials/.
+The default place for header is template/partials/headers/, contents is in template/partials/contents/ 
+and footers is in template/partials/footers/. Besides those, you can make your own folder or place in template/partials/components/.
+You can embed your partials in your main layout with tag {include="partials/[your-partial]"} e.g. {include="partials/headers/header1"}.
+
+## Using Switcher
+
+Switcher automatically detect layouts, headers, contents and footers from their folders and show them as a choices in switcher panel. You can add switcher in every layout by embedding {include="switcher"}. By default, switcher panel has been embedded in jsassets.html, so you only have to embed jsassets in your all layout.
