@@ -8,8 +8,7 @@
 	
 /* set some variables =============================================== */
 	// parse uri for layout
-	$uri = explode("/", $_SERVER['REQUEST_URI']);
-	$layout = (!empty($uri[2])) ? $uri[2] : 'layout1';
+	$layout = isset($_GET['l'])? $_GET['l']: 'layout1';
 	
 	// folder theme name, set this to your own theme
 	$theme = "bootstrap";
@@ -27,6 +26,7 @@
 	$tpl->assign('theme', $theme);
 	$tpl->assign('theme_path', $theme_path);
 	$tpl->assign('style', $style);
+	$tpl->assign('layout', $layout);
 
 	$header = isset($_GET['h'])? $_GET['h']: 'header1';
 	$tpl->assign('header', $header);
