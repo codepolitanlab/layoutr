@@ -31,3 +31,7 @@ You can embed your partials in your main layout with tag {include="partials/[you
 ## Using Switcher
 
 Switcher automatically detect layouts, headers, contents and footers from their folders and show them as a choices in switcher panel. You can add switcher in every layout by embedding {include="switcher"}. By default, switcher panel has been embedded in jsassets.html, so you only have to embed jsassets in your all layout.
+
+## Add new style
+
+This application uses Twitter Bootstrap CSS Framework, so you can directly add new bootstrap style by putting it in themes/bootstrap/css/styles/.
