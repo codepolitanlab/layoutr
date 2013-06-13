@@ -58,7 +58,8 @@
 <script>
 	// init
 	if($.cookie('is_open') == 'opened') open_switcher(); else close_switcher();
-	$('#input-style option[value={$style}]').prop('selected', true);
+	$('.nav li').removeClass('active');
+	$('.nav li#{$page}').addClass('active');
 	// end init
 	
 	function close_switcher(){

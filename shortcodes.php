@@ -20,7 +20,7 @@
 /* ================================================================== */
 
 /* Get headers, content, footers list from folders =================== */
-	function filter_array($array){
+	function get_files($array){
 		$result = array();
 		foreach ($array as $value) {
 			if($value != '.' && $value != '..'){
@@ -30,8 +30,18 @@
 		}
 		return $result;
 	}
-	$styles = filter_array(scandir("themes/$theme/css/styles/"));
-	$pages = filter_array(scandir('template/shortcodes/pages/'));
+	function get_folders($array){
+		$result = array();
+		foreach ($array as $value) {
+			if($value != '.' && $value != '..'){
+				if(is_dir('template/shortcodes/pages/'.$value))
+					$result[] = $value; // get only directory
+			}
+		}
+		return $result;
+	}
+	$styles = get_files(scandir("themes/$theme/css/styles/"));
+	$pages = get_folders(scandir('template/shortcodes/pages/'));
 	
 /* ================================================================== */
 
@@ -47,6 +57,12 @@
 
 	$page = isset($_GET['p'])? $_GET['p']: 'home';
 	$tpl->assign('page', $page);
+
+	// get content from the current page
+	if($page!='home')
+		foreach($pages as $content)
+			$contents = get_files(scandir('template/shortcodes/pages/'.$page));
+	$tpl->assign('contents', $contents);
 
 	// get pages list
 	$tpl->assign('styles', $styles);

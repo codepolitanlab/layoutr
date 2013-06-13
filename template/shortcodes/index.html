@@ -38,8 +38,9 @@
           <a class="brand" href="{$base_url}">Layoutr Shortcodes</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
+              <li id="home"><a href="shortcodes.php?p=home&s={$style}">Home</a></li>
               {loop="pages"}
-              <li class="active"><a href="shortcodes.php?p={$value}&s={$style}">{$value}</a></li>
+              <li id="{$value}"><a href="shortcodes.php?p={$value}&s={$style}">{$value}</a></li>
               {/loop}
             </ul>
           </div>
@@ -49,7 +50,13 @@
     </header>
 
     <div class="content">
-      {include="shortcodes/pages/$page"}
+      {if condition="$page=='home'"}
+        {include="shortcodes/pages/$page"}
+      {else}
+        {loop="contents"}
+          {include="shortcodes/pages/$page/$value"}
+        {/loop}
+      {/if}
     </div>
 
     <footer>
