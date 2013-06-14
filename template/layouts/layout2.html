@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {include="partials/metadata"}
+</head>
+<body>
+  <div class="container">
+
+    <div class="content">
+      <div class="row">
+        <div class="span3" id="sidebar">
+          <div class="row">
+            <div class="span3 fixed-top">
+              <h1>Nuhat</h1><hr>
+              {include="shortcodes/pages/widgets/menus1"}
+            </div>
+          </div>
+        </div>
+        <div class="span9" id="main-content">
+          {include="partials/headers/$header"}
+          {include="partials/contents/$content"}
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      {include="partials/footers/$footer"}
+    </footer>
+
+  </div> <!-- /container -->
+
+  {include="partials/jsassets"}
+</body>
+</html>

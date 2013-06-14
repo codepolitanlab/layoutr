@@ -73,6 +73,9 @@
 	$footer = isset($_GET['f'])? $_GET['f']: 'footer1';
 	$tpl->assign('footer', $footer);
 
+	$not_responsive = isset($_GET['nr'])? $_GET['nr']: 0;
+	$tpl->assign('not_responsive', $not_responsive);
+
 	// render
 	$tpl->draw('layouts/'.$layout); 
 /* ================================================================== */	

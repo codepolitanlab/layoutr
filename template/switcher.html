@@ -10,6 +10,10 @@
 			</select>
 		</div>
 		<div class="sub">
+			<h4 class="nav-header">Not Responsive?</h4>
+			<input type="checkbox" name="nr" id="input-responsive" value="1" {if condition="$not_responsive==1"}checked{/if}>
+		</div>
+		<div class="sub">
 			<h4 class="nav-header">Layout</h4>
 			<select class="span2" name="l" id="input-layout">
 				{loop="layouts"}

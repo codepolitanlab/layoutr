@@ -9,7 +9,9 @@
     {if condition="$style!=null"}
     <link href="{$base_url}{$theme_path}/css/custom/{$custom}.css" rel="stylesheet">
     {/if}
+    {if condition="$not_responsive!=1"}
     <link href="{$base_url}{$theme_path}/css/bootstrap-responsive.css" rel="stylesheet">
+    {/if}
     <link href="{$base_url}{$theme_path}/css/bootswatch.css" rel="stylesheet">
     <link href="{$base_url}{$theme_path}/css/font-awesome.css" rel="stylesheet">
 
