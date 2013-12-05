@@ -4,6 +4,11 @@
 	{include="shortcode-switcher"}
 {/if}
 
+<!-- Shortcode style -->
+{loop="$GLOBALS.scstyles"}
+{if condition="$value == true"}<link href="{$base_url}{$theme_path}css/custom/shortcodes/{$key}.css" rel="stylesheet">{/if}
+{/loop}
+
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->

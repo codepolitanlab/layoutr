@@ -13,15 +13,26 @@
 /* ================================================================== */
 	
 /* set some variables =============================================== */
-	// parse uri for layout
+	// parse query string
+	$mainstyle = isset($_GET['s'])? $_GET['s']: 'default';
 	$layout = isset($_GET['l'])? $_GET['l']: 'layout1';
+	$header = isset($_GET['h'])? $_GET['h']: 'header1';
+	$content = isset($_GET['c'])? $_GET['c']: '1col';
+	$footer = isset($_GET['f'])? $_GET['f']: 'footer1';
+	$boxed = isset($_GET['boxed'])? 'boxed': '';
 	
 	// this is for main style
-	$mainstyle = isset($_GET['s'])? $_GET['s']: 'bootstrap';
-	$style = file_exists($theme_path.'css/styles/'.$mainstyle.'.css')? $mainstyle : null;
+	$style = file_exists($theme_path.'css/styles/'.$mainstyle.'/bootstrap.min.css')? $mainstyle : null;
 
-	// this is custom style, make it the same name with its layout, otherwise it will use default style
-	$custom = file_exists($theme_path.'css/custom/'.$layout.'.css')? $layout : null;
+	// this is custom style
+	// for layout
+	$layoutcss = file_exists($theme_path.'css/custom/layouts/'.$layout.'.css')? $layout : null;
+	// for header
+	$headercss = file_exists($theme_path.'css/custom/headers/'.$header.'.css')? $header : null;
+	// for content
+	$contentcss = file_exists($theme_path.'css/custom/contents/'.$content.'.css')? $content : null;
+	// for footer
+	$footercss = file_exists($theme_path.'css/custom/footers/'.$footer.'.css')? $footer : null;
 
 /* ================================================================== */
 
@@ -36,7 +47,8 @@
 		}
 		return $result;
 	}
-	$styles = filter_array(scandir("themes/$theme/css/styles/"));
+	$styles = scandir("themes/$theme/css/styles/");
+	array_shift($styles); array_shift($styles);
 	$layouts = filter_array(scandir('template/layouts/'));
 	$headers = filter_array(scandir('template/partials/headers/'));
 	$contents = filter_array(scandir('template/partials/contents/'));
@@ -53,31 +65,30 @@
 	$tpl->assign('theme', $theme);
 	$tpl->assign('theme_path', $theme_path);
 	$tpl->assign('base_url', $base_url);
-	$tpl->assign('style', $style);
-	$tpl->assign('custom', $custom);
 	$tpl->assign('layout', $layout);
 
-	// get layout list
+	// custom styles
+	$tpl->assign('style', $style);
+	$tpl->assign('layoutcss', $layoutcss);
+	$tpl->assign('headercss', $headercss);
+	$tpl->assign('contentcss', $contentcss);
+	$tpl->assign('footercss', $footercss);
+
+	/* OPTIONS */
+	// option list
 	$tpl->assign('styles', $styles);
 	$tpl->assign('layouts', $layouts);
 	$tpl->assign('headers', $headers);
 	$tpl->assign('contents', $contents);
 	$tpl->assign('footers', $footers);
-
-	$header = isset($_GET['h'])? $_GET['h']: 'header1';
+	// options value
 	$tpl->assign('header', $header);
-
-	$content = isset($_GET['c'])? $_GET['c']: '1col';
 	$tpl->assign('content', $content);	
-
-	$footer = isset($_GET['f'])? $_GET['f']: 'footer1';
 	$tpl->assign('footer', $footer);
-
-	$not_responsive = isset($_GET['nr'])? $_GET['nr']: 0;
-	$tpl->assign('not_responsive', $not_responsive);
-
+	$tpl->assign('boxed', $boxed);
+	
 	// render
-	$tpl->draw('layouts/'.$layout); 
+	$tpl->draw('layouts/'.$layout);
 /* ================================================================== */	
 
 ?>

@@ -3,21 +3,19 @@
 <head>
   {include="partials/metadata"}
 </head>
-<body>
-  <div class="container">
-    <header>
-      {include="partials/headers/$header"}
-    </header>
+<body class="{$boxed}">
 
-    <div class="content">
-      {include="partials/contents/$content"}
-    </div>
+  <header>
+    {include="partials/headers/$header"}
+  </header>
 
-    <footer>
-      {include="partials/footers/$footer"}
-    </footer>
+  <div class="content">
+    {include="partials/contents/$content"}
+  </div>
 
-  </div> <!-- /container -->
+  <footer>
+    {include="partials/footers/$footer"}
+  </footer>
 
   {include="partials/jsassets"}
 </body>
