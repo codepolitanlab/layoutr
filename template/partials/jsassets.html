@@ -1,8 +1,4 @@
-﻿{if condition="$title=='layoutr'"}
-	{include="switcher"}
-{else}
-	{include="shortcode-switcher"}
-{/if}
+﻿{if condition="$title=='layoutr'"}{include="switcher"}{else}{include="shortcode-switcher"}{/if}
 
 <!-- Shortcode style -->
 {loop="$GLOBALS.scstyles"}
