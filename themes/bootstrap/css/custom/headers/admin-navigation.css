@@ -1,0 +1,14 @@
+.label,.glyphicon { 
+	margin-right:5px; 
+}
+header .navbar-top {
+	border-radius: 0;
+	margin-bottom: 0;
+}
+.boxed header .navbar-top {
+	top: 0;
+	position: fixed;
+	right: 0;
+	left: 0;
+	z-index: 1030;
+}

@@ -22,17 +22,24 @@
 	$boxed = isset($_GET['boxed'])? 'boxed': '';
 	
 	// this is for main style
-	$style = file_exists($theme_path.'css/styles/'.$mainstyle.'/bootstrap.min.css')? $mainstyle : null;
+	$style = file_exists($theme_path.'css/styles/'.$mainstyle.'/bootstrap.css')? $mainstyle : null;
 
 	// this is custom style
 	// for layout
-	$layoutcss = file_exists($theme_path.'css/custom/layouts/'.$layout.'.css')? $layout : null;
+	$layoutfile = strpos($layout, '__')? strstr($layout, '__', true): $layout;
+	$layoutcss = file_exists($theme_path.'css/custom/layouts/'.$layoutfile.'.css')? $layoutfile : null;
+
 	// for header
-	$headercss = file_exists($theme_path.'css/custom/headers/'.$header.'.css')? $header : null;
+	$headerfile = strpos($header, '__')? strstr($header, '__', true): $header;
+	$headercss = file_exists($theme_path.'css/custom/headers/'.$headerfile.'.css')? $headerfile : null;
+
 	// for content
-	$contentcss = file_exists($theme_path.'css/custom/contents/'.$content.'.css')? $content : null;
+	$contentfile = strpos($content, '__')? strstr($content, '__', true): $content;
+	$contentcss = file_exists($theme_path.'css/custom/contents/'.$contentfile.'.css')? $contentfile : null;
+
 	// for footer
-	$footercss = file_exists($theme_path.'css/custom/footers/'.$footer.'.css')? $footer : null;
+	$footerfile = strpos($footer, '__')? strstr($footer, '__', true): $footer;
+	$footercss = file_exists($theme_path.'css/custom/footers/'.$footerfile.'.css')? $footerfile : null;
 
 /* ================================================================== */
 
