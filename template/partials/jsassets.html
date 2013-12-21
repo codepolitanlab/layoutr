@@ -10,3 +10,22 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="{$base_url}{$theme_path}js/bootstrap.min.js"></script>
 <script src="{$base_url}{$theme_path}js/holder.js"></script>
+<script src="{$base_url}{$theme_path}js/plugin/jquery.lwtCountdown-1.0.js"></script>
+<script>
+(function($){
+	"use strict";
+	
+		$('#countdown_dashboard').countDown({
+        	targetDate: {
+          		'day': 		1,
+          		'month': 	1,
+          		'year': 	2014,
+          		'hour': 	0,
+          		'min': 		0,
+          		'sec': 		0 
+          	},
+          	omitWeeks: true
+          });
+
+})(jQuery);
+</script>

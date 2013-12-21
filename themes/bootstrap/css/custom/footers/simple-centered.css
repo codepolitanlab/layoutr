@@ -1,0 +1,75 @@
+/* START FOOTER
+================================================== */
+#wrap_footer {
+	background: #262532;
+	padding: 10px 0 10px 0;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	width: 100%;
+	z-index: 100;
+	height:49px;
+	margin: -49px 0 0 0;
+}
+
+.themeshark_footer {
+	text-align: center;
+}
+.themeshark_footer li {
+	display: inline-block;
+	text-transform: uppercase;
+	margin: 0 11px 0 0;
+	color: #82848C;
+	font-size: 12px;
+	background: url(../images/divider.png) no-repeat right;
+	padding-right: 15px;
+	padding-left: 15px;
+	font-style: normal;
+	font-weight: 300;
+}
+
+.themeshark_footer li:last-child {
+	background: none;
+}
+
+.themeshark_footer li a {
+	color: #82848C;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 300;
+	display: inline-block;
+}
+
+.themeshark_footer li a:hover {
+	color: #FFF;
+	text-decoration: none;
+}
+.themeshark_footer li a:hover .themeshark_footer_email_icon, .themeshark_footer li a:hover .themeshark_footer_phone_icon, .themeshark_footer li a:hover .themeshark_footer_map_icon {
+	background-color: #FFF;
+}
+
+
+.themeshark_footer li a > span {
+	display: inline-block;
+}
+
+.themeshark_footer_map_icon {
+	background: #82848C url(../images/icon_stencil.png) no-repeat;
+	width: 25px;
+	height: 18px;
+	background-position: 0px 0px;
+}
+
+.themeshark_footer_email_icon {
+	background: #82848C url(../images/icon_stencil.png) no-repeat;
+	width: 25px;
+	height: 18px;
+	background-position: -28px 0px;
+}
+
+.themeshark_footer_phone_icon {
+	background: #82848C url(../images/icon_stencil.png) no-repeat;
+	width: 25px;
+	height: 18px;
+	background-position: -54px 0px;
+}

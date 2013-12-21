@@ -15,9 +15,10 @@
 /* set some variables =============================================== */
 	// parse query string
 	$mainstyle = isset($_GET['s'])? $_GET['s']: 'default';
+	$metadata = isset($_GET['m'])? $_GET['m']: 'metadata';
 	$layout = isset($_GET['l'])? $_GET['l']: 'layout1';
 	$header = isset($_GET['h'])? $_GET['h']: 'header1';
-	$content = isset($_GET['c'])? $_GET['c']: '1col';
+	$content = isset($_GET['c'])? $_GET['c']: 'home1';
 	$footer = isset($_GET['f'])? $_GET['f']: 'footer1';
 	$boxed = isset($_GET['boxed'])? 'boxed': '';
 	
@@ -56,6 +57,7 @@
 	}
 	$styles = scandir("themes/$theme/css/styles/");
 	array_shift($styles); array_shift($styles);
+	$metadatas = filter_array(scandir('template/partials/metadata/'));
 	$layouts = filter_array(scandir('template/layouts/'));
 	$headers = filter_array(scandir('template/partials/headers/'));
 	$contents = filter_array(scandir('template/partials/contents/'));
@@ -84,6 +86,8 @@
 	/* OPTIONS */
 	// option list
 	$tpl->assign('styles', $styles);
+	$tpl->assign('metadata', $metadata);
+	$tpl->assign('metadatas', $metadatas);
 	$tpl->assign('layouts', $layouts);
 	$tpl->assign('headers', $headers);
 	$tpl->assign('contents', $contents);

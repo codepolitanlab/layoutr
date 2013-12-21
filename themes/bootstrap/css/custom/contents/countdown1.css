@@ -1,0 +1,15 @@
+/* IMAGE BACKGROUND
+================================================== */
+#wrap_background {
+	background: url(../../../img/slide1.jpg) repeat;
+}
+#wrap_background {
+	transition: all 0.7s ease-in-out;
+	-moz-transition: all 0.7s ease-in-out;
+	-webkit-transition: all 0.7s ease-in-out;
+	background-position: top;
+	overflow: hidden;
+	height: auto !important;
+	min-height: 100%;
+	height: 100%;
+}

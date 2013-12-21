@@ -14,6 +14,14 @@
 			<input type="checkbox" name="boxed" id="boxed" value="1" {if condition="$boxed=='boxed'"}checked="checked"{/if}>
 		</div>
 		<div class="sub">
+			<h4 class="nav-header">Metadata</h4>
+			<select class="span2" name="m" id="input-metadata">
+				{loop="metadatas"}
+					<option value="{$value}">{$value}</option>
+				{/loop}
+			</select>
+		</div>
+		<div class="sub">
 			<h4 class="nav-header">Layout</h4>
 			<select class="span2" name="l" id="input-layout">
 				{loop="layouts"}

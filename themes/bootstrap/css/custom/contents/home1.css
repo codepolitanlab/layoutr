@@ -12,10 +12,6 @@ html, body {
   height:100%;
 }
 
-body {
-  padding-top: 50px; /* body padding for fixed top nav */
-}
-
 .img-home-portfolio,
 .img-customer,
 .portfolio-item {
