@@ -13,7 +13,7 @@ class Build extends CI_Controller {
 		'footer'	=> 'footer1'
 		);
 
-	public $parser;
+	public $framework = 'bootstrap';
 
 	function __construct()
 	{
@@ -45,7 +45,7 @@ class Build extends CI_Controller {
 		if(isset($params['boxed'])) $data['boxed'] = 'boxed';
 
 		// this is for main style
-		$style = file_exists(theme_path('bootstrap/css/styles/'.$data['mainstyle'].'/bootstrap.css'))? $data['mainstyle'] : null;
+		$style = file_exists(theme_path($this->framework.'/css/styles/'.$data['mainstyle'].'/'.$this->framework.'.css'))? $data['mainstyle'] : null;
 
 		// this is custom style
 		// for layout
@@ -64,13 +64,7 @@ class Build extends CI_Controller {
 		$footerfile = strpos($data['footer'], '__')? strstr($data['footer'], '__', true): $data['footer'];
 		$footercss = file_exists(theme_path('bootstrap/css/custom/footers/'.$footerfile.'.css'))? $footerfile : false;
 
-		// custom styles
-		// $data['style'] = $style;
-		// $data['layoutcss'] = $layoutcss;
-		// $data['headercss'] = $headercss;
-		// $data['contentcss'] = $contentcss;
-		// $data['footercss'] = $footercss;
-
+		// add main and custom styles
 		$data['style'] = $style;
 		$data['layoutcss'] = $layoutcss;
 		$data['headercss'] = $headercss;
@@ -126,10 +120,36 @@ class Build extends CI_Controller {
 		return $content;
 	}
 
-	function build_switcher()
+	function build_switcher($params = array())
 	{
+		$parser = new Lex\Parser();
 		
+		$data['styles'] = scandir(theme_path("/{$this->framework}/css/styles/"));
+
+		print_r($data['styles']);
+
+		// this id for delete '.' and '..' folders
+		array_shift($styles); array_shift($styles);
+
+		$data['metadatas'] = $this->filter_array(scandir(template_path('partials/metadata/')));
+		$data['layouts'] = $this->filter_array(scandir(template_path('layouts/')));
+		$data['headers'] = $this->filter_array(scandir(template_path('partials/headers/')));
+		$data['contents'] = $this->filter_array(scandir(template_path('partials/contents/')));
+		$data['footers'] = $this->filter_array(scandir(template_path('partials/footers/')));
+
+		return $parser->parse(get_template('switcher'), $data);
 	}
+
+	function filter_array($array){
+		$result = array();
+		foreach ($array as $value) {
+			if($value != '.' && $value != '..'){
+				$result[] = substr($value, 0, count($value) - 5); // remove .html or .css
+			}
+		}
+		return $result;
+	}
+
 }
 
 /* End of file build.php */

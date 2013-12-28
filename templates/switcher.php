@@ -4,9 +4,9 @@
 		<div class="sub">
 			<h4 class="nav-header">Style</h4>
 			<select class="span2" name="s" id="input-style">
-				{loop="styles"}
+				{{ styles }}
 					<option value="{$value}">{$value}</option>
-				{/loop}
+				{{ / styles }}
 			</select>
 		</div>
 		<div class="sub">
