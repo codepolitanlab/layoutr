@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+
+	Options +FollowSymLinks -Indexes
+	Options -MultiViews
+	RewriteEngine on
+
+	RedirectMatch 403 ^/.*/(system/cms/cache|system/codeigniter|system/cms/config|system/cms/logs|\.git|\.hg).*$
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+
+	<IfModule mod_php5.c>
+		RewriteRule ^(.*)$ index.php/$1 [L]
+	</IfModule>
+
+	<IfModule !mod_php5.c>
+		RewriteRule ^(.*)$ index.php?/$1 [L]
+	</IfModule>
+
+</IfModule>
